@@ -1,0 +1,134 @@
+﻿html,body{
+	width:100%;
+	height:100%
+}
+body{
+	margin: 0 auto;
+	padding: 0;
+	font-family: 微软雅黑;
+	background:url('../background/航母_0.jpg')  no-repeat;
+	background-size:cover;
+}
+.head{
+	width:100%;
+	height: 100px;
+	font-family:华文行楷;
+	color:white;
+	font-size: 80px;
+	text-align: center;
+	line-height: 100px;
+	background-color: rgba(0,0,1,0.3);
+}
+.login-content{
+	width: 300px;
+	height: 310px;
+	border-radius:15px;
+	background-color: rgba(0,0,1,0.2);
+	/* 上右下左 */
+	margin: 11% 0px 0px 68%; 
+	float: left;
+}
+.login-logle{
+	width: 100%;
+	height: 45px;
+	margin-top: 3px;
+	border-radius:15px 15px 0px 0px;
+	line-height: 50px;
+	text-align:center;
+}
+span{
+	color:white;
+	font-size: 28px;
+	}
+.login-name-content{
+	width: 220px;
+	height: 30px;
+	margin: 35px 0px 0px 40px; 
+	border-radius:8px;
+	background-color: rgba(0,0,1,0.1);
+	border: 2px solid rgba(0,0,1,0.2);
+}
+.login-name-logle{
+	margin: 4px 0px 0px 8px; 
+	float: left; 
+}
+.login-name-line{
+	width: 2px;
+	height: 20px;
+	margin-top: 5px;
+	margin-left: 10px;
+	background-color: rgba(0,0,1,0.2);
+	float: left;
+}
+.name-input{
+	width: 155px;
+	height: 20px;
+	margin-top: 5px;
+	margin-left: 10px;
+	background-color:  transparent;
+	border: transparent;
+	color: white;
+	float: left;
+}
+.login-password-content{
+	width: 220px;
+	height: 30px;
+	margin: 30px 0px 0px 40px; 
+	border-radius:8px;
+	background-color: rgba(0,0,1,0.1);
+	border: 2px solid rgba(0,0,1,0.2);
+}
+.login-password-logle{
+	margin: 4px 0px 0px 8px; 
+	float: left; 
+}
+.login-password-line{
+	width: 2px;
+	height: 20px;
+	margin-top: 5px;
+	margin-left: 10px;
+	background-color: rgba(0,0,1,0.2);
+	float: left;
+}
+.password-input{
+	width: 155px;
+	height: 20px;
+	margin-top: 5px;
+	margin-left: 10px;
+	background-color:  transparent;
+	border: transparent;
+	color: white;
+	float: left;
+}
+.check-register{
+	width: 100%;
+	height: 30px;
+	margin-top: 10px;
+}
+.forget-password{
+	margin-top: 5px;
+	margin-left: 50px;
+	font-size: 13px;
+	color: white;
+	float: left;
+}
+.register{
+	margin-top: 5px;
+	margin-left: 105px;
+	font-size: 13px;
+	color: white;
+	float: left;
+}
+.login-button{
+	width: 200px;
+	height: 38px;
+	margin-top: 10px;
+	margin-left: 55px;
+	background-color:rgb(245, 134, 8);
+	border-radius:8px;
+	text-align: center;
+	font-size: 25px;
+	color: white;
+	border: transparent;
+	float: left;
+}

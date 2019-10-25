@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>抢购</title>
+  <link rel="stylesheet" href="../../static/layui/css/layui.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="../../static/layui/layui.js"></script>
+  <script src="../../static/jquery/jquery-3.3.1.min.js"></script>
+  <script src="../../static/layer/layer.js"></script>
+    <script src="../../static/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <ul class="layui-nav" lay-filter="" style="text-align: center">
+    <li class="layui-nav-item layui-this"><a href="/">抢购</a></li>
+    <li class="layui-nav-item"><a href="/">暂无</a></li>
+    <li class="layui-nav-item"><a href="/">暂无</a></li>
+    <li class="layui-nav-item"><a href="/">暂无</a></li>
+    <li class="layui-nav-item" style="margin-right: 10px; float: right">
+      <a href=""><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2536453479,3877278103&fm=26&gp=0.jpg" class="layui-nav-img">用户名</a>
+      <dl class="layui-nav-child">
+        <dd><a href="javascript:;">退出</a></dd>
+      </dl>
+    </li>
+  </ul>
+<div class="row clearfix">
+    <div class="col-md-8 column">
+        <form class="layui-form" method="post" action="/RTB">
+          <div class="layui-form-item layui-form-text">
+              <div class="col-xs-12"><h4 class="heading_left">ip代理：</h4></div>
+              <div class="form-group col-xs-12 section-top-10">
+                  <textarea type="text" class="form-control" name="ip_agent" placeholder="请输入ip代理，格式：ip:port:username:password（支持多行输入）。如果不使用代理请填写0" required></textarea>
+              </div>
+              <div class="col-xs-12"><h4 class="heading_left">商品网址：</h4></div>
+              <div class="form-group col-xs-12 section-top-10">
+                  <input type="text" class="form-control" name="dataOrigin" placeholder="请输入需要抢购的商品的网址" required>
+              </div>
+              <div class="col-xs-12"><h4 class="heading_left">尺寸编号：</h4><a href="size.html">什么是尺寸编号？</a></div>
+              <div class="form-group col-xs-12 section-top-10">
+                  <input type="text" class="form-control" name="size" placeholder="如果没有就写0（多个尺寸以空格分隔）" required>
+              </div>
+                <div class="col-xs-12"><h4 class="heading_left">购买数量：</h4></div>
+                <div class="form-group col-xs-12 section-top-10">
+                    <input type="number" class="form-control" name="number" placeholder="请输入需要抢购的数量（尽量不超过5件）" required>
+                </div>
+                <div class="col-xs-12"><h4 class="heading_left">尝试次数：</h4></div>
+                <div class="form-group col-xs-12 section-top-10">
+                    <input type="number" class="form-control" name="count" placeholder="请输入抢购每件商品的尝试次数（不要太多，容易被封IP，建议加入随机ip代理）" required>
+                </div>
+          </div>
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit lay-filter="formDemo" type="submit">开始</button>
+              <button type="reset" class="layui-btn layui-btn-primary">结束</button>
+            </div>
+          </div>
+        </form>
+    </div>
+    <div class="col-md-4 column">
+        <ul class="list-group">
+            <li class="list-group-item">这里会输出上次抢购的后台详细信息:</li>
+            {% for log in log_list %}
+                <li class="list-group-item">{{ log }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
