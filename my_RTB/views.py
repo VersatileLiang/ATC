@@ -20,7 +20,7 @@ def index(request):
 
 
 class myThread (threading.Thread):
-    def __init__(self, threadID, name, threadCount, commodityURL, size, ip_agent):
+    def __init__(self, threadID, name, threadCount, commodityURL, size, ip_agent, sign):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
@@ -28,9 +28,10 @@ class myThread (threading.Thread):
         self.commodityURL = commodityURL
         self.size = size
         self.ip_agent = ip_agent
+        self.sign = sign
     def run(self):
         set_log(self.name + "开始")
-        main_buy(self.name, self.threadCount, self.commodityURL, self.size, self.ip_agent)
+        main_buy(self.name, self.threadCount, self.commodityURL, self.size, self.ip_agent, self.sign)
         set_log(self.name + "退出")
 
 # 登录
@@ -81,7 +82,7 @@ def post_white(browser, commodityURL, size):
     return "成功"
 
 # 抢购主函数
-def main_buy(_threadName, threadCount, commodityURL, size, ip_agent):
+def main_buy(_threadName, threadCount, commodityURL, size, ip_agent, sign):
     ip_list = ip_agent.split("\r\n")
     for list in ip_list:
         option = webdriver.ChromeOptions()  # 实例化一个ChromeOptions对象
@@ -138,9 +139,23 @@ def main_buy(_threadName, threadCount, commodityURL, size, ip_agent):
                     set_log(_threadName + "第" + str(size_count) + "个尺寸：" + size + "-" + "第" + str(
                         count) + "次尝试结果：" + result)
                 if result == "成功":
+                    if sign == 1:
+                        browser.get('https://www.off---white.com/en/IT/cart')
+                        browser.find_element_by_id("privacy_policy_check").click()
+                        time.sleep(1)
+                        browser.find_element_by_class_name("no-line").click()
+                        browser.find_element_by_class_name("continue").click()
+                        browser.find_element_by_class_name("continue").click()
                     browser.close()
                     break
                 elif result == "相同商品超过数量限制，请勿购买太多":
+                    if sign == 1:
+                        browser.get('https://www.off---white.com/en/IT/cart')
+                        browser.find_element_by_id("privacy_policy_check").click()
+                        time.sleep(1)
+                        browser.find_element_by_class_name("no-line").click()
+                        browser.find_element_by_class_name("continue").click()
+                        browser.find_element_by_class_name("continue").click()
                     browser.close()
                     break
                 elif result == "当前尺寸暂时缺货":
@@ -181,7 +196,14 @@ def RTB(request):
     # 创建新线程
     i = 1
     while i <= threadNumber:
-        thread = myThread(i, "线程" + str(i) + "-", threadCount, commodityURL, size, ip_agent)
+        sign = 0
+        if i < threadNumber:
+            sign = 0
+        elif i == threadNumber:
+            sign = 1
+        else:
+            sign = 0
+        thread = myThread(i, "线程" + str(i) + "-", threadCount, commodityURL, size, ip_agent, sign)
         threadList.append(thread)
         i += 1
         thread.start()
