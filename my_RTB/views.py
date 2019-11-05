@@ -344,3 +344,4 @@ def create_proxy_auth_extension(proxy_host, proxy_port,
         zp.writestr("background.js", background_js)
 
     return plugin_path
+#注释
